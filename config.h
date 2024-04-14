@@ -68,6 +68,9 @@ static const Layout layouts[] = {
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *rofi_drun[] = {"rofi", "-show", "drun", NULL};
 
+/* screenshot */
+static const char *screenshot[] = {"/home/user/.dwm/screenshot.sh", NULL}; /* change this to ur path of the screenshot.sh script */
+
 #include <X11/XF86keysym.h>
 static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
 static const char *volupcmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
@@ -75,6 +78,7 @@ static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ 0,                            XK_Print,  spawn,          {.v = screenshot } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = rofi_drun } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
